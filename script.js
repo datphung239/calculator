@@ -25,7 +25,50 @@ btns.addEventListener("click", (btn) => {
 });
 // Output
 const equal = document.querySelector("#equal");
+const outputDisplay = document
+  .querySelector("#display")
+  .querySelector(".result");
+function calInArray(inputArr, operation) {
+  let idx = inputArr.indexOf(operation);
+  let before = parseFloat(inputArr[idx - 1]);
+  let after = parseFloat(inputArr[idx + 1]);
+  operation === "x"
+    ? (result = before * after)
+    : operation === "÷"
+    ? (result = before / after)
+    : operation === "+"
+    ? (result = before + after)
+    : operation === "-"
+    ? (result = before - after)
+    : true;
+  inputArr[idx - 1] = result;
+  inputArr.splice(idx, 2);
+}
 equal.addEventListener("click", (_) => {
-  console.log(input);
-  console.log(7.3 * 9 - (6 / 9) * 9);
+  const inputArr = input.split(" ");
+  if (operation.has(inputArr[inputArr.length - 1])) return;
+  // Mutiply and divided first
+  while (inputArr.indexOf("x") !== -1 || inputArr.indexOf("÷") !== -1) {
+    for (let index = 0; index < inputArr.length; index++) {
+      if (inputArr[index] === "x") {
+        calInArray(inputArr, "x");
+        break;
+      } else if (inputArr[index] === "÷") {
+        calInArray(inputArr, "÷");
+        break;
+      }
+    }
+  }
+  while (inputArr.indexOf("+") !== -1 || inputArr.indexOf("-") !== -1) {
+    for (let index = 0; index < inputArr.length; index++) {
+      if (inputArr[index] === "+") {
+        calInArray(inputArr, "+");
+        break;
+      } else if (inputArr[index] === "-") {
+        calInArray(inputArr, "-");
+        break;
+      }
+    }
+  }
+  outputDisplay.innerText = inputArr[0];
 });
