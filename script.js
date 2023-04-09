@@ -1,7 +1,9 @@
 const btns = document.querySelector("#btn-grid");
 let input = "";
 const operation = new Set(["x", "+", "-", "÷"]);
+
 // Input
+let inputDisplay = document.querySelector("#display1 .result");
 btns.addEventListener("click", (btn) => {
   // Return nothing if not click to btn
   if (!btn.target.className.includes("btn")) return;
@@ -20,9 +22,9 @@ btns.addEventListener("click", (btn) => {
     let last = input.split(" ").pop();
     if (!last.includes(".") && !isNaN(last.slice(-1))) input += val;
   }
-  let inputDisplay = document.querySelector("#display1 .result");
   inputDisplay.innerText = input;
 });
+
 // Output
 const equal = document.querySelector("#equal");
 const outputDisplay = document
@@ -71,4 +73,19 @@ equal.addEventListener("click", (_) => {
     }
   }
   outputDisplay.innerText = inputArr[0];
+});
+// Clear & Del
+
+btns.addEventListener("click", (btn) => {
+  // Clear
+  if (btn.target.getAttribute("id") === "clear") {
+    input = "";
+    inputDisplay.innerText = "";
+    outputDisplay.innerText = "";
+  }
+  // Del 1 charater
+  if (btn.target.getAttribute("id") === "backspace") {
+    input = input.trim().slice(0, -1);
+    inputDisplay.innerText = input;
+  }
 });
