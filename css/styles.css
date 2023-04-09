@@ -4,6 +4,7 @@ body {
   align-items: center;
   height: 900px;
   background: #373737;
+  font-family: "Poppins", sans-serif;
 }
 #container {
   display: flex;
@@ -49,6 +50,11 @@ body {
   font-weight: bold;
   font-size: 30px;
 }
+#main {
+  display: flex;
+  flex-direction: column;
+}
+
 #btn-grid {
   display: grid;
   grid-gap: 0px;
@@ -67,4 +73,30 @@ body {
   font-weight: bold;
   border-radius: 10px;
   border: 2px solid black;
+}
+
+#equal {
+  background-color: green;
+}
+
+#backspace,
+#clear {
+  grid-column: span 2;
+}
+#clear {
+  background-color: red;
+}
+
+.copyright {
+  color: #dcdcdc;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45px;
+}
+
+.copyright a {
+  color: #f8f8ff;
+  text-decoration: none;
 }
