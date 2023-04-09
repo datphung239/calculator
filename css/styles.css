@@ -6,6 +6,7 @@ body {
   background: #373737;
   font-family: "Poppins", sans-serif;
 }
+
 #container {
   display: flex;
   flex-direction: column;
@@ -14,42 +15,55 @@ body {
   border: 3px solid black;
   background-color: #2d2d2c;
 }
+
 #display {
   display: flex;
   height: 150px;
   padding: 20px;
 }
 #sub-display {
+  flex: 1;
   border: 2px solid black;
   border-radius: 8px;
   background-color: #373737;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
   padding: 10px;
-  flex: 1 1 auto;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
 }
 #display #sub-display .result {
+  flex: 0.9;
   font-size: 50px;
   font-weight: bold;
   color: #f5f2ed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#display #sub-display .previous-input {
+  flex: 0.1;
+  color: #c0c0c0;
 }
 
 #display1 {
   height: 55px;
   background-color: #262627;
   color: #f5f2ed;
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 22px;
-  align-items: center;
+  padding: 0px 22px 0px 22px;
   border-bottom: 1px solid black;
   border-top: 1px solid black;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  overflow: hidden;
+  white-space: nowrap;
 }
 #display1 .result {
   font-weight: bold;
   font-size: 30px;
 }
+
 #main {
   display: flex;
   flex-direction: column;
@@ -73,10 +87,40 @@ body {
   font-weight: bold;
   border-radius: 10px;
   border: 2px solid black;
+  cursor: pointer;
+}
+/* Create button affect */
+/* Number */
+.num:hover {
+  background-color: #bdbdbd;
+  color: black;
+}
+.num:active {
+  background-color: #bdbdbd;
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
+}
+/* Operator */
+.ops:hover {
+  background-color: #6495ed;
+  color: black;
+}
+.ops:active {
+  background-color: #6495ed;
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
+}
+/* Equal */
+#equal:active,
+#backspace:active,
+.dot:active,
+#clear:active {
+  box-shadow: 0 0 #666;
+  transform: translateY(4px);
 }
 
 #equal {
-  background-color: green;
+  background-color: #228b22;
 }
 
 #backspace,
@@ -84,9 +128,9 @@ body {
   grid-column: span 2;
 }
 #clear {
-  background-color: red;
+  background-color: #b22222;
 }
-
+/* Copyright */
 .copyright {
   color: #dcdcdc;
   font-weight: 600;
