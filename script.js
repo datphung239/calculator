@@ -86,7 +86,7 @@ equal.addEventListener("click", (_) => {
       }
     }
   }
-  outputDisplay.innerText = inputArr[0];
+  outputDisplay.innerText = parseFloat(inputArr[0]);
   previousInput.innerText = input;
   input = "";
 });
