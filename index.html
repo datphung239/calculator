@@ -5,20 +5,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Calculator</title>
-    <link href="styles.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
     <script src="script.js" defer></script>
   </head>
   <body>
     <div id="container">
       <div id="display">
         <div id="sub-display">
-          <div class="result">150</div>
+          <div class="result"></div>
         </div>
       </div>
       <div id="display1">
         <div class="result"></div>
       </div>
       <div id="btn-grid">
+        <button class="btn" id="clear">Clear</button>
+        <button class="btn" id="backspace">Del</button>
         <button class="btn num">7</button>
         <button class="btn num">8</button>
         <button class="btn num">9</button>
@@ -36,6 +38,13 @@
         <button class="btn" id="equal">=</button>
         <button class="btn ops">+</button>
       </div>
+      <footer>
+        <div class="copyright">
+          Built by &nbsp;
+          <a href="https://github.com/Artis-Dev">datph</a> &nbsp;|&nbsp;
+          <a href="https://github.com/Artis-Dev/calculator">Source code</a>
+        </div>
+      </footer>
     </div>
   </body>
 </html>
