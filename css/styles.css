@@ -130,6 +130,11 @@ body {
 #clear {
   background-color: #b22222;
 }
+
+.btn.active {
+  background-color: #6495ed;
+}
+
 /* Copyright */
 .copyright {
   color: #dcdcdc;

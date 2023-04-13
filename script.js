@@ -33,6 +33,27 @@ btns.addEventListener("click", (btn) => {
   inputDisplay.innerText = input;
 });
 
+// Input by pressing keyboard
+// Missing x & *
+const btnArray = btns.querySelectorAll(".btn");
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    equal.click();
+  } else if (event.key === "Backspace") {
+    const backspace = document.querySelector("#backspace");
+    backspace.click();
+  } else {
+    btnArray.forEach((btn) => {
+      if (btn.innerText === event.key) {
+        btn.click();
+        btn.classList.add("active");
+        setTimeout(function () {
+          btn.classList.remove("active");
+        }, 100);
+      }
+    });
+  }
+});
 // Output
 let previousInput = document.querySelector("#sub-display > div.previous-input");
 const equal = document.querySelector("#equal");
@@ -58,8 +79,8 @@ function calInArray(inputArr, operation) {
 }
 // Execute when click on equal button
 equal.addEventListener("click", (_) => {
-  // If . at the end  --> return
-  if (input.slice(-1) === ".") return;
+  // If . at the end or nothing  --> return
+  if (input.slice(-1) === "." || input.length === 0) return;
   // Main
   const inputArr = input.split(" ");
   if (operation.has(inputArr[inputArr.length - 1])) return;
