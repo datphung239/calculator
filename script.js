@@ -34,14 +34,24 @@ btns.addEventListener("click", (btn) => {
 });
 
 // Input by pressing keyboard
-// Missing x & *
 const btnArray = btns.querySelectorAll(".btn");
 document.addEventListener("keydown", (event) => {
+  // Press enter to output
   if (event.key === "Enter") {
     equal.click();
+  } else if (event.key === "Delete") {
+    document.querySelector("#clear").click();
+    // Press backspace to delete 1 char
   } else if (event.key === "Backspace") {
     const backspace = document.querySelector("#backspace");
     backspace.click();
+    // Press Slash to division
+  } else if (event.code === "Slash") {
+    document.querySelector("#division").click();
+    // Press Shift 8 to mutiply
+  } else if (event.shiftKey && event.code === "Digit8") {
+    document.querySelector("#mutiply").click();
+    // Press any key inside btn-grid to interact
   } else {
     btnArray.forEach((btn) => {
       if (btn.innerText === event.key) {
@@ -54,6 +64,7 @@ document.addEventListener("keydown", (event) => {
     });
   }
 });
+
 // Output
 let previousInput = document.querySelector("#sub-display > div.previous-input");
 const equal = document.querySelector("#equal");
