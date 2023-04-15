@@ -4,12 +4,7 @@ const operation = new Set(["×", "+", "-", "÷"]);
 
 // Input
 let inputDisplay = document.querySelector("#display1 .result");
-
-btns.addEventListener("keydown", (btn) => {
-  console.log(btn);
-});
-
-btns.addEventListener("click", (btn) => {
+function input(btn) {
   // Return nothing if not click to btn
   if (!btn.target.className.includes("btn")) return;
   // Input value
@@ -36,14 +31,8 @@ btns.addEventListener("click", (btn) => {
     if (!last.includes(".") && !isNaN(last.slice(-1))) input += val;
   }
   inputDisplay.innerText = input;
-});
-btnsArray = btns.querySelectorAll(".btn");
-document.addEventListener("keydown", (event) => {
-  btnsArray.forEach((btn) => {
-    if (event.key === "Enter") {
-      document.querySelector("#equal").click();
-      return;
-    }
+}
+btns.addEventListener("click", input);
 
 // Input by pressing keyboard
 const btnArray = btns.querySelectorAll(".btn");
