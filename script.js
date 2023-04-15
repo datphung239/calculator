@@ -4,7 +4,7 @@ const operation = new Set(["×", "+", "-", "÷"]);
 
 // Input
 let inputDisplay = document.querySelector("#display1 .result");
-btns.addEventListener("click", (btn) => {
+function input(btn) {
   // Return nothing if not click to btn
   if (!btn.target.className.includes("btn")) return;
   // Input value
@@ -31,11 +31,12 @@ btns.addEventListener("click", (btn) => {
     if (!last.includes(".") && !isNaN(last.slice(-1))) input += val;
   }
   inputDisplay.innerText = input;
-});
+}
+btns.addEventListener("click", input);
 
 // Input by pressing keyboard
 const btnArray = btns.querySelectorAll(".btn");
-document.addEventListener("keydown", (event) => {
+function pressKey(event) {
   // Press enter to output
   if (event.key === "Enter") {
     equal.click();
@@ -63,7 +64,8 @@ document.addEventListener("keydown", (event) => {
       }
     });
   }
-});
+}
+document.addEventListener("keydown", pressKey);
 
 // Output
 let previousInput = document.querySelector("#sub-display > div.previous-input");
@@ -89,7 +91,7 @@ function calInArray(inputArr, operation) {
   inputArr.splice(idx, 2);
 }
 // Execute when click on equal button
-equal.addEventListener("click", (_) => {
+function output(_) {
   // If . at the end or nothing  --> return
   if (input.slice(-1) === "." || input.length === 0) return;
   // Main
@@ -121,10 +123,11 @@ equal.addEventListener("click", (_) => {
   outputDisplay.innerText = parseFloat(inputArr[0]);
   previousInput.innerText = input;
   input = "";
-});
+}
+equal.addEventListener("click", output);
 
 // Clear & Del
-btns.addEventListener("click", (btn) => {
+function clearAndDel(btn) {
   // Clear
   if (btn.target.getAttribute("id") === "clear") {
     input = "";
@@ -137,4 +140,5 @@ btns.addEventListener("click", (btn) => {
     input = input.trim().slice(0, -1).trim();
     inputDisplay.innerText = input;
   }
-});
+}
+btns.addEventListener("click", clearAndDel);

@@ -5,6 +5,8 @@ body {
   height: 900px;
   background: #373737;
   font-family: "Poppins", sans-serif;
+  flex-direction: column;
+  gap: 20px;
 }
 
 #container {
@@ -148,4 +150,9 @@ body {
 .copyright a {
   color: #f8f8ff;
   text-decoration: none;
+}
+
+/* Note */
+.press-note {
+  color: white;
 }
