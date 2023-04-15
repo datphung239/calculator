@@ -4,6 +4,10 @@ const operation = new Set(["×", "+", "-", "÷"]);
 
 // Input
 let inputDisplay = document.querySelector("#display1 .result");
+btns.addEventListener("keydown", (btn) => {
+  console.log(btn);
+});
+
 btns.addEventListener("click", (btn) => {
   // Return nothing if not click to btn
   if (!btn.target.className.includes("btn")) return;
@@ -32,7 +36,23 @@ btns.addEventListener("click", (btn) => {
   }
   inputDisplay.innerText = input;
 });
+btnsArray = btns.querySelectorAll(".btn");
+document.addEventListener("keydown", (event) => {
+  btnsArray.forEach((btn) => {
+    if (event.key === "Enter") {
+      document.querySelector("#equal").click();
+      return;
+    }
 
+    if (btn.innerText === event.key) {
+      btn.click();
+      btn.classList.add("active");
+      setTimeout(function () {
+        btn.classList.remove("active");
+      }, 100);
+    }
+  });
+});
 // Output
 let previousInput = document.querySelector("#sub-display > div.previous-input");
 const equal = document.querySelector("#equal");
