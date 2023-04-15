@@ -4,7 +4,7 @@ const operation = new Set(["×", "+", "-", "÷"]);
 
 // Input
 let inputDisplay = document.querySelector("#display1 .result");
-function input(btn) {
+function inputFunc(btn) {
   // Return nothing if not click to btn
   if (!btn.target.className.includes("btn")) return;
   // Input value
@@ -32,7 +32,7 @@ function input(btn) {
   }
   inputDisplay.innerText = input;
 }
-btns.addEventListener("click", input);
+btns.addEventListener("click", inputFunc);
 
 // Input by pressing keyboard
 const btnArray = btns.querySelectorAll(".btn");
@@ -47,10 +47,10 @@ function pressKey(event) {
     const backspace = document.querySelector("#backspace");
     backspace.click();
     // Press Slash to division
-  } else if (event.code === "Slash") {
+  } else if (event.key === "/") {
     document.querySelector("#division").click();
     // Press Shift 8 to mutiply
-  } else if (event.shiftKey && event.code === "Digit8") {
+  } else if (event.key === "*") {
     document.querySelector("#mutiply").click();
     // Press any key inside btn-grid to interact
   } else {
