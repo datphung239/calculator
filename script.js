@@ -4,6 +4,7 @@ const operation = new Set(["×", "+", "-", "÷"]);
 
 // Input
 let inputDisplay = document.querySelector("#display1 .result");
+
 btns.addEventListener("keydown", (btn) => {
   console.log(btn);
 });
